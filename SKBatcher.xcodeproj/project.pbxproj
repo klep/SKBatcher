@@ -38,7 +38,7 @@
 		FCFCCE8D1E0DAEA000D84F8B /* SKBatcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKBatcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFCCE921E0DAEA000D84F8B /* SKBatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKBatcherTests.swift; sourceTree = "<group>"; };
 		FCFCCE941E0DAEA000D84F8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCFCCEA01E0DB05800D84F8B /* SKBatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKBatcher.swift; sourceTree = "<group>"; };
+		FCFCCEA01E0DB05800D84F8B /* SKBatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKBatcher.swift; path = SKBatcher/SKBatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +85,7 @@
 		FCFCCE7A1E0DAEA000D84F8B = {
 			isa = PBXGroup;
 			children = (
+				FCFCCEA01E0DB05800D84F8B /* SKBatcher.swift */,
 				FCFCCE861E0DAEA000D84F8B /* SKBatcher */,
 				FCFCCE911E0DAEA000D84F8B /* SKBatcherTests */,
 				FCFCCE851E0DAEA000D84F8B /* Products */,
@@ -105,7 +106,6 @@
 		FCFCCE861E0DAEA000D84F8B /* SKBatcher */ = {
 			isa = PBXGroup;
 			children = (
-				FCFCCEA01E0DB05800D84F8B /* SKBatcher.swift */,
 				FCFCCE871E0DAEA000D84F8B /* SKBatcher.h */,
 				FCFCCE881E0DAEA000D84F8B /* Info.plist */,
 			);

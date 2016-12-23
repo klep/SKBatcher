@@ -2,7 +2,6 @@
 //  SKBatcher.swift
 //
 //  Created by Scott J. Kleper on 12/21/16.
-//  Copyright © 2016 AngelList. All rights reserved.
 //
 
 import Foundation
