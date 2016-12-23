@@ -11,7 +11,7 @@ public class SKBatcher {
     
     let apiCall: (([Int], ((JSON?) -> Void)) -> Void)
     
-    var allIds = [Int]() {
+    public var allIds = [Int]() {
         didSet {
             cache = [Int: AnyObject]()
         }
@@ -37,7 +37,7 @@ public class SKBatcher {
         return nil
     }
 
-    func fetch(id: Int, completion: (AnyObject) -> Void) {
+    public func fetch(id: Int, completion: (AnyObject) -> Void) {
         if let cachedValue = cachedValueForId(id) {
             completion(cachedValue)
             return
