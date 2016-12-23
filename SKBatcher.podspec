@@ -49,7 +49,7 @@ Pod::Spec.new do |s|
   #
 
 #s.license      = "MIT"
-  s.license      = { :type => "MIT", , :text => <<-LICENSETEXT
+  s.license      = { :type => "MIT", :text => <<-LICENSETEXT
 The MIT License (MIT)
 Copyright (c) 2016, Scott J. Kleper
 
