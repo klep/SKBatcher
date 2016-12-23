@@ -7,7 +7,7 @@
 import Foundation
 import SwiftyJSON
 
-class SKBatcher {
+public class SKBatcher {
     
     let apiCall: (([Int], ((JSON?) -> Void)) -> Void)
     
