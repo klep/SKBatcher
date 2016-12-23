@@ -20,7 +20,7 @@ public class SKBatcher {
     var cache = [Int: AnyObject]()
     var completionHandlers: [Int: [((AnyObject) -> Void)?]] = [:]
     
-    init(apiCall: (([Int], ((JSON?) -> Void)) -> Void)) {
+    public init(apiCall: (([Int], ((JSON?) -> Void)) -> Void)) {
         self.apiCall = apiCall
     }
 
