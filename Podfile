@@ -4,7 +4,7 @@ target 'SKBatcher' do
   use_frameworks!
 
   # Pods for SKBatcher
-  pod 'SwiftyJSON', '~> 2.3.2'
+  pod 'SwiftyJSON'
   
   target 'SKBatcherTests' do
     inherit! :search_paths

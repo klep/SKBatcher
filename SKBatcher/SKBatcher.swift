@@ -7,11 +7,11 @@
 import Foundation
 import SwiftyJSON
 
-public class SKBatcher {
+open class SKBatcher {
     
     let apiCall: (([Int], ((JSON?) -> Void)) -> Void)
     
-    public var allIds = [Int]() {
+    open var allIds = [Int]() {
         didSet {
             cache = [Int: AnyObject]()
         }
@@ -20,15 +20,15 @@ public class SKBatcher {
     var cache = [Int: AnyObject]()
     var completionHandlers: [Int: [((AnyObject) -> Void)?]] = [:]
     
-    public init(apiCall: (([Int], ((JSON?) -> Void)) -> Void)) {
+    public init(apiCall: @escaping (([Int], ((JSON?) -> Void)) -> Void)) {
         self.apiCall = apiCall
     }
 
-    func idIsPending(id: Int) -> Bool {
+    func idIsPending(_ id: Int) -> Bool {
         return cache[id] is Bool
     }
     
-    func cachedValueForId(id: Int) -> AnyObject? {
+    func cachedValueForId(_ id: Int) -> AnyObject? {
         guard !(cache[id] is Bool) else { return nil }
         
         if let value = cache[id] {
@@ -37,7 +37,7 @@ public class SKBatcher {
         return nil
     }
 
-    public func fetch(id: Int, completion: (AnyObject) -> Void) {
+    open func fetch(_ id: Int, completion: @escaping (AnyObject) -> Void) {
         if let cachedValue = cachedValueForId(id) {
             completion(cachedValue)
             return
@@ -55,12 +55,12 @@ public class SKBatcher {
         // Batch up the next 10, but omit any that are already pending
         var batch = [Int]()
         batch.append(id)
-        cache[id] = true
-        if let loc = allIds.indexOf(id) {
+        cache[id] = true as AnyObject?
+        if let loc = allIds.index(of: id) {
             allIds[loc..<min(loc+10, allIds.count)].forEach({ (id) in
                 if !idIsPending(id) {
                     batch.append(id)
-                    cache[id] = true
+                    cache[id] = true as AnyObject?
                 }
             })
         }
@@ -69,10 +69,10 @@ public class SKBatcher {
             if let results = json?.dictionary {
                 results.keys.forEach{ id in
                     if let excerpt = results[id] {
-                        self.cache[Int(id)!] = excerpt.object
+                        self.cache[Int(id)!] = excerpt.object as AnyObject?
                         if let handlers = self.completionHandlers[Int(id)!] {
                             handlers.forEach({ (handler) in
-                                handler?(excerpt.object)
+                                handler?(excerpt.object as AnyObject)
                             })
                         }
                         self.completionHandlers[Int(id)!] = []
