@@ -9,7 +9,7 @@ import SwiftyJSON
 
 open class SKBatcher {
     
-    let apiCall: (([Int], ((JSON?) -> Void)) -> Void)
+    let apiCall: (([Int], @escaping ((JSON?) -> Void)) -> Void)
     
     open var allIds = [Int]() {
         didSet {
@@ -20,7 +20,7 @@ open class SKBatcher {
     var cache = [Int: AnyObject]()
     var completionHandlers: [Int: [((AnyObject) -> Void)?]] = [:]
     
-    public init(apiCall: @escaping (([Int], ((JSON?) -> Void)) -> Void)) {
+    public init(apiCall: @escaping (([Int], @escaping ((JSON?) -> Void)) -> Void)) {
         self.apiCall = apiCall
     }
 
